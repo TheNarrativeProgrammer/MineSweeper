@@ -1,0 +1,36 @@
+.container_gameBoard{
+    border: 1px solid black;
+    width: 900px;
+    margin: 0 auto;/*centers game board*/
+}
+/* 
+.container_rowColums
+{
+    width: 100%;
+} */
+
+table{
+    width: 900px;
+    
+    border: 5px solid pink; /*makes boarder around table*/
+    border-style: groove;
+    border-collapse: collapse;
+    
+
+}
+
+
+td, tr { /*table data aka, a cell that is the #column within a row. This will give each cell a border.*/
+    border: 1px solid black;
+    height: 100px;
+    width: 100px;
+    text-align: center; /* Center content */
+    vertical-align: middle; /* Center content vertically */
+    overflow: hidden; /* Hide any overflow content */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* table, td {
+    border-collapse: collapse;
+    padding: 20px;
+} */
