@@ -1,7 +1,17 @@
 import CellInDataElement from "./CellInDataElement.js";
+const region = 
+{
+    start: "undefined",
+    row_Upper: "upper",
+    row_Lower: "lower",
+    column_Left: "left",
+    column_Right: "right",
+   
+};
+
 class GameBoardScafolding
 {
-    constructor(InNumOfRows, InNumofColumns,  inCells)
+    constructor(InNumOfRows, InNumofColumns)
     {
         //member varialbes
         this.numOfRows = InNumOfRows;
@@ -46,6 +56,70 @@ class GameBoardScafolding
                 this.scafoldingGridArray[row][column] = this.CellsGridArray[row][column];
             }
         }
+    }
+
+    FindEdgesAroundClickedCell(InRowOfTdPlayerClicked, InColumnOfTdPlayerClicked)
+    {
+        const startingCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked][InColumnOfTdPlayerClicked];
+        const minRow =0;
+        const minColumn =0;
+        const maxRow = this.numOfRows-1;
+        const maxcoumn = this.numOfColumns-1;
+        //find middle. Assume game board size is even number and in multiples of 10
+        const centerUpperRow = (this.numOfRows/2)-1;
+        const centerLowerRow = (this.numOfRows/2);
+        const centerLeftColumn = (this.numOfRows/2)-1;
+        const centerRightColumn = (this.numOfRows/2);
+        //save distance to edge
+        let distanceToEdgeRows =0;
+        let distanceToEdgeColumns =0;
+
+
+        //find closest edge
+        if(InRowOfTdPlayerClicked<=centerUpperRow)//row upper region
+        {
+            startingCellObjectInScafoldArray.startingCellRegionRow = region.row_Upper;
+            startingCellObjectInScafoldArray.distanceToEdgeRows = InRowOfTdPlayerClicked;
+            // console.log("Row edge dist:  " + startingCellObjectInScafoldArray.distanceToEdgeRows);
+            // distanceToEdgeRows = InRowOfTdPlayerClicked;
+            // console.log(InRowOfTdPlayerClicked);
+            
+        }
+        if(InRowOfTdPlayerClicked>=centerLowerRow)//row lower region
+            {
+                startingCellObjectInScafoldArray.startingCellRegionRow = region.row_Lower;
+                // console.log(startingCellObjectInScafoldArray.startingCellRegionRow);
+                startingCellObjectInScafoldArray.distanceToEdgeRows =  maxRow - InRowOfTdPlayerClicked;
+                // distanceToEdgeRows = maxRow - InRowOfTdPlayerClicked;
+                // console.log("Row edge dist:  " + startingCellObjectInScafoldArray.distanceToEdgeRows);
+            }
+         if(InColumnOfTdPlayerClicked<=centerLeftColumn)//column Left region
+        {
+            startingCellObjectInScafoldArray.startingCellRegionColumn = region.column_Left;
+            // console.log(startingCellObjectInScafoldArray.startingCellRegionColumn);
+            startingCellObjectInScafoldArray.distanceToEdgeColumns = InColumnOfTdPlayerClicked;
+            // distanceToEdgeRows = distanceToEdgeColumns;
+            // console.log("Column edge dist:  " + startingCellObjectInScafoldArray.distanceToEdgeColumns);
+            
+            
+        }
+        if(InColumnOfTdPlayerClicked>=centerRightColumn)//row Right region
+            {
+                startingCellObjectInScafoldArray.startingCellRegionColumn = region.column_Right;
+                // console.log(startingCellObjectInScafoldArray.startingCellRegionColumn);
+                startingCellObjectInScafoldArray.distanceToEdgeColumns =  maxcoumn - InColumnOfTdPlayerClicked;
+                // console.log("Column edge dist:  " + startingCellObjectInScafoldArray.distanceToEdgeColumns);
+            }
+
+        // console.log("upper " + centerUpperRow);
+        // console.log("Lower " + centerLowerRow);
+        // console.log("Left " + centerLeftColumn);
+        // console.log("Right " + centerRightColumn);
+
+        return startingCellObjectInScafoldArray;
+
+        
+
     }
 
  
