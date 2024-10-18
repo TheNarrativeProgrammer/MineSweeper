@@ -1,4 +1,4 @@
-.container_gameBoard{
+.container_game{
     border: 1px solid black;
     width: 900px;
     margin: 0 auto;/*centers game board*/
@@ -9,28 +9,31 @@
     width: 100%;
 } */
 
+
+
 table{
-    width: 900px;
+    width: 100%;
+    table-layout: fixed; /* If no widths are present on the first row, the column widths are divided equally across the table */
+    height: 175px;
     
-    border: 5px solid pink; /*makes boarder around table*/
+    border: 5px solid pink; 
     border-style: groove;
     border-collapse: collapse;
     
 
 }
 
+tr{
+    white-space: nowrap;
+}
 
-td, tr { /*table data aka, a cell that is the #column within a row. This will give each cell a border.*/
+
+td { /*table data aka, a cell that is the #column within a row. This will give each cell a border.*/
     border: 1px solid black;
-    height: 100px;
-    width: 100px;
+    height: 50px;
     text-align: center; /* Center content */
     vertical-align: middle; /* Center content vertically */
     overflow: hidden; /* Hide any overflow content */
     white-space: nowrap; /* Prevent text wrapping */
 }
 
-/* table, td {
-    border-collapse: collapse;
-    padding: 20px;
-} */
