@@ -48,7 +48,7 @@ class GameBoardHMTLRender
         const cellObjectInScafoldArray = this.gameBoardScafolding.CellsGridArray[inRowAttribute][inColumnAttribute];
         console.log("Update cell")
        console.log(cellObjectInScafoldArray.cellStatusAttribute2);
-       cellObjectInScafoldArray.cellStatusAttribute2="no";
+       cellObjectInScafoldArray.cellStatusAttribute2;
 
         
     }

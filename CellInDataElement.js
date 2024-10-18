@@ -14,7 +14,7 @@ class CellInDataElement
     constructor()
     {
         this.cellStatusAttribute1 = cellStatusAttribute.HIDDEN;
-        this.cellStatusAttribute2 = cellStatusAttribute.HASMINE;
+        this.cellStatusAttribute2 = cellStatusAttribute.Num;
         this.surroundingmines = "fore";
     }
 
