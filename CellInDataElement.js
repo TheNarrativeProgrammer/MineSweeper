@@ -6,18 +6,11 @@ const cellStatusAttribute =
     a1_Revealed: "revealed",
     a2_HasMine: "hasmine",
     a2_Empty: "empty",
+    a2_StartingCleared: "cleared",
     a3_NumSurroundingMines: "",
 };
 
-const region = 
-{
-    start: "undefined",
-    row_Upper: "upper",
-    row_Lower: "lower",
-    column_Left: "left",
-    column_Right: "right",
-   
-};
+
 
 
 

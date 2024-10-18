@@ -1,8 +1,9 @@
 class UserInput
 {
-    constructor(inGameBoardScafolding)
+    constructor(inGameBoardScafolding, inMyGameBoardHTMLRender)
     {
         this.gameBoardScafolding = inGameBoardScafolding;
+        this.gameBoardHTMLRender = inMyGameBoardHTMLRender;
         console.log(this.gameBoardScafolding); // Check if it's defined
         console.log("User input created"); // Check if it's defined
         this.AddEventListenersLeftClick(); //flag cell
@@ -26,10 +27,16 @@ class UserInput
 
                 if(this.countClicks===0)
                 {
-                    console.log("in if");
+                    
                     const startingCellObjectInScafoldArray = this.gameBoardScafolding.FindEdgesAroundClickedCell(rowAttribute,columnAttribute);
-                    console.log("Column edge dist:  " + startingCellObjectInScafoldArray.distanceToEdgeColumns);
-                    console.log("Row edge dist:  " + startingCellObjectInScafoldArray.distanceToEdgeRows);
+                    // console.log("Column edge dist:  " + startingCellObjectInScafoldArray.distanceToEdgeColumns);
+                    // console.log("Row edge dist:  " + startingCellObjectInScafoldArray.distanceToEdgeRows);
+                    this.gameBoardScafolding.DefineAreaAroundInitalClickAsCleared(startingCellObjectInScafoldArray, rowAttribute, columnAttribute);
+
+                    this.gameBoardHTMLRender.RenderGameBoardHTMLElements("gameTest"); 
+                    
+
+                    
                     
                 }
 

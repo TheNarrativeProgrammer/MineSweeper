@@ -73,6 +73,8 @@ class GameBoardScafolding
         //save distance to edge
         let distanceToEdgeRows =0;
         let distanceToEdgeColumns =0;
+        //store data in cell object
+        
 
 
         //find closest edge
@@ -118,7 +120,25 @@ class GameBoardScafolding
 
         return startingCellObjectInScafoldArray;
 
-        
+    }
+
+    DefineAreaAroundInitalClickAsCleared(inStartingCellObjectInScafoldArray, InRowOfTdPlayerClicked, InColumnOfTdPlayerClicked)
+    {
+
+        const startingCellObjectInScafoldArray = inStartingCellObjectInScafoldArray;
+
+        if(startingCellObjectInScafoldArray.startingCellRegionRow == "upper")
+        {
+
+            
+            for(let IteratingFromMiddleUpward = startingCellObjectInScafoldArray.distanceToEdgeRows; IteratingFromMiddleUpward >=0; IteratingFromMiddleUpward--)
+            {
+                const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked - IteratingFromMiddleUpward][InColumnOfTdPlayerClicked];
+                adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
+                console.log("cell status" + adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty);
+            }
+
+        }
 
     }
 

@@ -20,11 +20,11 @@ myGameBoardHTMLRender.RenderGameBoardHTMLElements("gameTest");
 
 //USER INPUT
  import UserInput from "./UserInput.js";
- const myUserInput = new UserInput(myGameBoardScafolding);
+ const myUserInput = new UserInput(myGameBoardScafolding, myGameBoardHTMLRender);
 
 
 
-const myCellData1 = new CellInDataElement(myGameBoardScafolding);
+//const myCellData1 = new CellInDataElement(myGameBoardScafolding);
 
 
 

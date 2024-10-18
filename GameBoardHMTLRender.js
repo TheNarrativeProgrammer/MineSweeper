@@ -25,7 +25,7 @@ class GameBoardHMTLRender
                 const dataElementInTable = document.createElement("td");                                        //create td element in tr. Store as var
                 dataElementInTable.id = ((row*100) + column);                                                   //assign unique ID
                 const cellObjectInScafoldArray = this.gameBoardScafolding.scafoldingGridArray[row][column];     //store cell object located at current position of scafoldingGridArray as variable
-                dataElementInTable.textContent = cellObjectInScafoldArray.cellStatusAttribute2;
+                dataElementInTable.textContent = cellObjectInScafoldArray.cellStatusA2_MineVsEmpty;
                 // dataElementInTable.textContent = cellObjectInScafoldArray.cellStatusAttribute2;
 
                 
@@ -52,6 +52,8 @@ class GameBoardHMTLRender
 
         
     }
+
+    
 
   
 
