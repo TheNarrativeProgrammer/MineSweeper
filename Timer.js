@@ -5,19 +5,12 @@ class Timer
          this.timerInterval;
         this.timeElapsed = 0;
         this.timerDisplay = document.getElementById("timer");
-        this.addEventList();
+        this.startTime();
         
     }
     
 
-    addEventList()
-    {
-        const attcheButtonListnerTimer = document.getElementById("start").addEventListener("click", ()=>{
-            this.startTime();
-            console.log("event list");
-        });
-
-    }
+    
     
     startTime = () =>
     {

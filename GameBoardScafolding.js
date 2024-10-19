@@ -471,7 +471,7 @@ class GameBoardScafolding
                             {
                                 CellObjectInScafoldArray.cellStatusA1_Visibility="revealed"
                                 console.log("GAME OVER");
-                                // alert("Game Over");
+                                //  alert("Game Over");
                             }
 
                 }

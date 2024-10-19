@@ -84,6 +84,27 @@ class UserInput
         })
 
     }
+
+    ShowGameOverModal(inMessage)
+    {
+        const modalElement = document.getElementById("gameOverModel");
+        const messageElement = document.getElementById("gameOverMessage");
+        const restartButton = document.getElementById("restartButton");
+
+        //Default message is "Game Over". inMessage overrides the default
+        messageElement.textContent = inMessage;
+        modalElement.style.display = "block"; //change visibility of modal to visible
+
+        // //RESTART BUTTON
+        // restartButton.addEventListener("click", (event) => {
+        //     modalElement.style.display = "none"; //change visibility of modal to hidden
+        //     restartGameRestoreSettings();
+
+        // });
+            
+
+        
+    }
 }
 
 export default UserInput;

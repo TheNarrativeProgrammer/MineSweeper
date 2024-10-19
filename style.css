@@ -52,3 +52,19 @@ td { /*table data aka, a cell that is the #column within a row. This will give e
     background-color: red;
 }
 
+#gameOverModal
+{
+    display: none; /* hide by default so window doesn't show until triggered */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: red;
+    color: black;
+    border: 2px solid black;
+    text-align: center;
+    padding: 50px;
+
+}
+

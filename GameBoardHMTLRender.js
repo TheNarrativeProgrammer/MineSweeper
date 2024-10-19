@@ -60,15 +60,6 @@ class GameBoardHMTLRender
         gameBoardContainerElement.appendChild(tableElementinGB);                                            //puts table elemnent within the GB container element
     }
 
-    UpdateCellAppearance_NumFlagClear(inRowAttribute, inColumnAttribute)
-    {
-        const cellObjectInScafoldArray = this.gameBoardScafolding.CellsGridArray[inRowAttribute][inColumnAttribute];
-        console.log("Update cell")
-       console.log(cellObjectInScafoldArray.cellStatusAttribute2);
-       cellObjectInScafoldArray.cellStatusAttribute2;
-
-        
-    }
 
     
 
