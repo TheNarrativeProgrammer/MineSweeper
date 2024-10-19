@@ -279,15 +279,15 @@ class GameBoardScafolding
                     {
                         
                         let columnIteration = InColumnOfTdPlayerClicked  - IteratingFromMiddleRIGHTward 
-                        let columnIterationAtZero = 1;
+                        let columnIterationAtZero = this.numOfColumns-2;
                         if(InColumnOfTdPlayerClicked==this.numOfColumns-1)                                                                                                            //if player clicks column 0, extend coumns to right by 1
                         {
                             console.log("True player clicked corner")
                             columnIteration = columnIterationAtZero;
                         }
-                        if(InColumnOfTdPlayerClicked>=(this.numOfColumns/2)+1)                                                                                                            //if player clicks column closer to center, select random number to see if cells in iteration are cleared
+                        else if(InColumnOfTdPlayerClicked<=(this.numOfColumns/2)+1)                                                                                                            //if player clicks column closer to center, select random number to see if cells in iteration are cleared
                         {
-                            columnIteration = this.getRandtomInt(5);
+                            columnIteration =  this.numOfColumns - startingCellObjectInScafoldArray.distanceToEdgeRows - this.getRandtomInt(2);
                         }
                         
                         for(let IteratingFromMiddleUpward = startingCellObjectInScafoldArray.distanceToEdgeRows; IteratingFromMiddleUpward >=0; IteratingFromMiddleUpward--)    //iterate th
@@ -296,7 +296,7 @@ class GameBoardScafolding
                             const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked - IteratingFromMiddleUpward][columnIteration];
                             adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
                             console.log("FILL OUT - RIGHT upper");
-                            columnIterationAtZero++;
+                            columnIterationAtZero--;
                         }
                     }
                 }
@@ -307,22 +307,25 @@ class GameBoardScafolding
                     {
                         
                         let columnIteration = InColumnOfTdPlayerClicked  - IteratingFromMiddleRIGHTward
-                        let columnIterationAtZero = 1; 
+                        let columnIterationAtZero = this.numOfColumns-2;
+                        let rowIteration =  startingCellObjectInScafoldArray.distanceToEdgeRows;
                         if(InColumnOfTdPlayerClicked==this.numOfColumns-1)                                                                                            //if player clicks column = Total#column, extend coumns to RIGHT by 1
                         {
                             columnIteration = columnIterationAtZero;
+                            rowIteration =  startingCellObjectInScafoldArray.distanceToEdgeRows-2;
+                            
                         }
-                        if(InColumnOfTdPlayerClicked>=(this.numOfColumns/2)+1)                                                                                                            //if player clicks column closer to center, select random number to see if cells in iteration are cleared
+                        else if(InColumnOfTdPlayerClicked<=(this.numOfColumns/2)+1)                                                                                                            //if player clicks column closer to center, select random number to see if cells in iteration are cleared
                         {
-                            columnIteration = this.getRandtomInt(5);
+                            columnIteration = this.numOfColumns - startingCellObjectInScafoldArray.distanceToEdgeRows - this.getRandtomInt(3);
                         }
                         
-                        for(let IteratingFromMiddleDownward = startingCellObjectInScafoldArray.distanceToEdgeRows; IteratingFromMiddleDownward >=-1; IteratingFromMiddleDownward--)    //iterate th
+                        for(let IteratingFromMiddleDownward = rowIteration; IteratingFromMiddleDownward >=1; IteratingFromMiddleDownward--)    //iterate th
                         {
-                            const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked + IteratingFromMiddleDownward][columnIteration];
+                            const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked - IteratingFromMiddleDownward][columnIteration];
                             adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
                             console.log("FILL OUT - RIGHT upper");
-                            columnIterationAtZero++;
+                            columnIterationAtZero--;
                         }
                     }
                 }
