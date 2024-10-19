@@ -412,7 +412,7 @@ class GameBoardScafolding
                             }
                         }
 
-                        if(neighbourIsCleared==true && CellObjectInScafoldArray.cellStatusA2_MineVsEmpty!== "cleared")
+                        if(neighbourIsCleared==true && CellObjectInScafoldArray.cellStatusA2_MineVsEmpty == "cleared")
                         {
                             CellObjectInScafoldArray.cellStatusA2_AdjacentMines=mineCount;
                             neighbourIsCleared = false;
