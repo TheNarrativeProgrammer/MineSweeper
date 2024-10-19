@@ -135,10 +135,11 @@ class GameBoardScafolding
     {
 
         const startingCellObjectInScafoldArray = inStartingCellObjectInScafoldArray;
+        //ROW REGION (UPPER AND LOWER)
 
         if(startingCellObjectInScafoldArray.startingCellRegionRow == "upper")                                                                           //UPPER REGIION - cleared cells start where player clicked and generate UPWARDS toward upper bound. Random generates DOWNWARD
         {
-            for(let IteratingFromMiddleUpward = startingCellObjectInScafoldArray.distanceToEdgeRows; IteratingFromMiddleUpward >=0; IteratingFromMiddleUpward--)    //clear all cells until reaching the upper bounds - starting cell UPWARD
+            for(let IteratingFromMiddleUpward = startingCellObjectInScafoldArray.distanceToEdgeRows; IteratingFromMiddleUpward >=0; IteratingFromMiddleUpward--)    //clear all cells until reaching the upper bounds (row 0)- generate UPWARD of starting cell
             {
                 const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked - IteratingFromMiddleUpward][InColumnOfTdPlayerClicked];
                 adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
@@ -148,7 +149,7 @@ class GameBoardScafolding
             const maxUpperRange = startingCellObjectInScafoldArray.centerUpperRow+3 - startingCellObjectInScafoldArray.distanceToEdgeRows;
             const RandomIterationToClearUntil = this.getRandtomInt(maxUpperRange);                                                                          //random number provides bound for additional cells to clear beyond the point the player clicked
             
-            for(let i = 1; i < RandomIterationToClearUntil; i++)                                                                                            //clear all cells until reaching the upper bounds of random number - starting cell down
+            for(let i = 1; i < RandomIterationToClearUntil; i++)                                                                                            //clear all cells until reaching the bounds of random number - generate  DOWNWARD of starting cell
             {
                 const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked + i][InColumnOfTdPlayerClicked];
             adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
@@ -157,7 +158,7 @@ class GameBoardScafolding
 
             if(startingCellObjectInScafoldArray.startingCellRegionRow == "lower")                                                                          //LOWER REGIION - cleared cells start where player clicked and generate DOWNWARDS toward upper bound. Random generates UPWARD
             {
-                for(let IteratingFromMiddleDownward = startingCellObjectInScafoldArray.distanceToEdgeRows; IteratingFromMiddleDownward >=0; IteratingFromMiddleDownward--)    //clear all cells until reaching the upper bounds - starting cell DOWNARD
+                for(let IteratingFromMiddleDownward = startingCellObjectInScafoldArray.distanceToEdgeRows; IteratingFromMiddleDownward >=0; IteratingFromMiddleDownward--)    //clear all cells until reaching the lower bounds (row = Total#Row)- generate  DOWNWARD of starting cell
                 {
                     const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked + IteratingFromMiddleDownward][InColumnOfTdPlayerClicked];
                     adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
@@ -166,11 +167,167 @@ class GameBoardScafolding
                     const maxUpperRange = startingCellObjectInScafoldArray.centerLowerRow+3 - startingCellObjectInScafoldArray.distanceToEdgeRows;
                     const RandomIterationToClearUntil = this.getRandtomInt(maxUpperRange);                                                                          //random number provides bound for additional cells to clear beyond the point the player clicked
                     
-                for(let i = 1; i < RandomIterationToClearUntil; i++)                                                                                            //clear all cells until reaching the upper bounds of random number - starting cell UPDWARD
+                for(let i = 1; i < RandomIterationToClearUntil; i++)                                                                                            //clear all cells until reaching the bounds of random number - generate UPWARD of starting cell
                 {
                 const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked - i][InColumnOfTdPlayerClicked];
                 adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
                 }
+            }
+
+            //COLUMN REGION (LEFT AND RIGHT)
+
+            //LEFT
+
+
+            if(startingCellObjectInScafoldArray.startingCellRegionColumn == "left")                                                                    //LEFT REGIION - cleared cells start where player clicked and generate LEFTWARD toward left bound . Random generates RIGHTWARD
+            {
+                for(let IteratingFromMiddleLeftward = startingCellObjectInScafoldArray.distanceToEdgeColumns; IteratingFromMiddleLeftward >=0; IteratingFromMiddleLeftward--)    //clear all cells until reaching the left bounds (column 0)- generate LEFTWARD of starting cell
+                {
+                    const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked][InColumnOfTdPlayerClicked  - IteratingFromMiddleLeftward];
+                    adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
+                    console.log("cell status column" + adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty);
+                }
+
+                const maxUpperRange = startingCellObjectInScafoldArray.centerLeftColumn+3 - startingCellObjectInScafoldArray.distanceToEdgeColumns;
+                const RandomIterationToClearUntil = this.getRandtomInt(maxUpperRange);                                                                          //random number provides bound for additional cells to clear beyond the point the player clicked
+                
+                for(let i = 1; i < RandomIterationToClearUntil; i++)                                                                                            //clear all cells until reaching the bounds of random number - generate RIGHTWARD of starting cell
+                {
+                    console.log("in loop 1");
+                    const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked][InColumnOfTdPlayerClicked + i];
+                adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
+                }
+                                                                                                                                                //LEFT FILL OUT
+                if(startingCellObjectInScafoldArray.startingCellRegionRow == "upper")                                                                               //FILL OUT - LEFT UPPER - makes random assortment of cells cleared making cleared area more square sharped.
+                {
+                    for(let IteratingFromMiddleLeftward = startingCellObjectInScafoldArray.distanceToEdgeColumns; IteratingFromMiddleLeftward >=0; IteratingFromMiddleLeftward--)    
+                    {
+                        
+                        let columnIteration = InColumnOfTdPlayerClicked  - IteratingFromMiddleLeftward 
+                        let columnIterationAtZero = 1;
+                        if(InColumnOfTdPlayerClicked==0)                                                                                                            //if player clicks column 0, extend coumns to right by 1
+                        {
+                            columnIteration = columnIterationAtZero;
+                        }
+                        if(InColumnOfTdPlayerClicked>=(this.numOfColumns/2)+1)                                                                                                            //if player clicks column closer to center, select random number to see if cells in iteration are cleared
+                        {
+                            columnIteration = this.getRandtomInt(5);
+                        }
+                        
+                        for(let IteratingFromMiddleUpward = startingCellObjectInScafoldArray.distanceToEdgeRows; IteratingFromMiddleUpward >=0; IteratingFromMiddleUpward--)    //iterate th
+                        {
+                            
+                            const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked - IteratingFromMiddleUpward][columnIteration];
+                            adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
+                            console.log("FILL OUT - left upper");
+                            columnIterationAtZero++;
+                        }
+                    }
+                }
+
+                if(startingCellObjectInScafoldArray.startingCellRegionRow == "lower")                                                                          //FILL OUT - LEFT LOWER - makes random assortment of cells cleared making cleared area more square sharped.
+                {
+                    for(let IteratingFromMiddleLeftward = startingCellObjectInScafoldArray.distanceToEdgeColumns; IteratingFromMiddleLeftward >=0; IteratingFromMiddleLeftward--)    
+                    {
+                        
+                        let columnIteration = InColumnOfTdPlayerClicked  - IteratingFromMiddleLeftward
+                        let columnIterationAtZero = 1; 
+                        if(InColumnOfTdPlayerClicked==0)                                                                                            //if player clicks column = Total#column, extend coumns to left by 1
+                        {
+                            columnIteration = columnIterationAtZero;
+                        }
+                        if(InColumnOfTdPlayerClicked>=(this.numOfColumns/2)+1)                                                                                                            //if player clicks column closer to center, select random number to see if cells in iteration are cleared
+                        {
+                            columnIteration = this.getRandtomInt(5);
+                        }
+                        
+                        for(let IteratingFromMiddleDownward = startingCellObjectInScafoldArray.distanceToEdgeRows; IteratingFromMiddleDownward >=-1; IteratingFromMiddleDownward--)    //iterate th
+                        {
+                            const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked + IteratingFromMiddleDownward][columnIteration];
+                            adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
+                            console.log("FILL OUT - left upper");
+                            columnIterationAtZero++;
+                        }
+                    }
+                }
+            }
+
+            //Right
+
+            if(startingCellObjectInScafoldArray.startingCellRegionColumn == "right")                                                                          //RIGHT REGIION - cleared cells start where player clicked and generate DOWNWARDS toward right bound. Random generates LEFTWARD
+            {console.log("in right upper 1")
+                for(let IteratingFromMiddleRightward = startingCellObjectInScafoldArray.distanceToEdgeColumns; IteratingFromMiddleRightward >=0; IteratingFromMiddleRightward--)    //clear all cells until reaching the right bounds (column = total#Columns) - generate RIGHTWARD of starting cell
+                {
+                    const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked][InColumnOfTdPlayerClicked  + IteratingFromMiddleRightward];
+                    adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
+                    console.log("cell status" + adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty);
+                }
+                    const maxUpperRange = startingCellObjectInScafoldArray.centerRightColumn+3 - startingCellObjectInScafoldArray.distanceToEdgeColumns;
+                    const RandomIterationToClearUntil = this.getRandtomInt(maxUpperRange);                                                                          //random number provides bound for additional cells to clear beyond the point the player clicked
+                    
+                for(let i = 1; i < RandomIterationToClearUntil; i++)                                                                                            //clear all cells until reaching the bounds of random number - generate LEFTWARD of starting cell
+                {
+                    console.log("in loop 2");
+                const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked][InColumnOfTdPlayerClicked  - i];
+                adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
+                }
+
+                                                                                                                                                                //RIGHT FILL OUT
+                if(startingCellObjectInScafoldArray.startingCellRegionRow == "upper")                                                                               //FILL OUT - RIGHT UPPER - makes random assortment of cells cleared making cleared area more square sharped.
+                {
+                    for(let IteratingFromMiddleRIGHTward = startingCellObjectInScafoldArray.distanceToEdgeColumns; IteratingFromMiddleRIGHTward >=0; IteratingFromMiddleRIGHTward--)    
+                    {
+                        
+                        let columnIteration = InColumnOfTdPlayerClicked  - IteratingFromMiddleRIGHTward 
+                        let columnIterationAtZero = 1;
+                        if(InColumnOfTdPlayerClicked==this.numOfColumns-1)                                                                                                            //if player clicks column 0, extend coumns to right by 1
+                        {
+                            console.log("True player clicked corner")
+                            columnIteration = columnIterationAtZero;
+                        }
+                        if(InColumnOfTdPlayerClicked>=(this.numOfColumns/2)+1)                                                                                                            //if player clicks column closer to center, select random number to see if cells in iteration are cleared
+                        {
+                            columnIteration = this.getRandtomInt(5);
+                        }
+                        
+                        for(let IteratingFromMiddleUpward = startingCellObjectInScafoldArray.distanceToEdgeRows; IteratingFromMiddleUpward >=0; IteratingFromMiddleUpward--)    //iterate th
+                        {
+                            
+                            const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked - IteratingFromMiddleUpward][columnIteration];
+                            adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
+                            console.log("FILL OUT - RIGHT upper");
+                            columnIterationAtZero++;
+                        }
+                    }
+                }
+
+                if(startingCellObjectInScafoldArray.startingCellRegionRow == "lower")                                                                          //FILL OUT - RIGHT LOWER - makes random assortment of cells cleared making cleared area more square sharped.
+                {
+                    for(let IteratingFromMiddleRIGHTward = startingCellObjectInScafoldArray.distanceToEdgeColumns; IteratingFromMiddleRIGHTward >=0; IteratingFromMiddleRIGHTward--)    
+                    {
+                        
+                        let columnIteration = InColumnOfTdPlayerClicked  - IteratingFromMiddleRIGHTward
+                        let columnIterationAtZero = 1; 
+                        if(InColumnOfTdPlayerClicked==this.numOfColumns-1)                                                                                            //if player clicks column = Total#column, extend coumns to RIGHT by 1
+                        {
+                            columnIteration = columnIterationAtZero;
+                        }
+                        if(InColumnOfTdPlayerClicked>=(this.numOfColumns/2)+1)                                                                                                            //if player clicks column closer to center, select random number to see if cells in iteration are cleared
+                        {
+                            columnIteration = this.getRandtomInt(5);
+                        }
+                        
+                        for(let IteratingFromMiddleDownward = startingCellObjectInScafoldArray.distanceToEdgeRows; IteratingFromMiddleDownward >=-1; IteratingFromMiddleDownward--)    //iterate th
+                        {
+                            const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked + IteratingFromMiddleDownward][columnIteration];
+                            adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
+                            console.log("FILL OUT - RIGHT upper");
+                            columnIterationAtZero++;
+                        }
+                    }
+                }
+
+               
             }
 
         }

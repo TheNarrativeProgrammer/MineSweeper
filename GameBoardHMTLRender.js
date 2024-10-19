@@ -36,7 +36,7 @@ class GameBoardHMTLRender
                 dataElementInTable.dataset.rowAttribute = row;                                              //Creates attribute named "rowAttribute" within td element w/ value = row 
                 dataElementInTable.dataset.columnAttribute = column;                                        //                         "columnAttribute"                        = column 
                 rowElementInTable.appendChild(dataElementInTable);                                          //puts td elemnent within the tr element
-                console.log(this.gameBoardScafolding.scafoldingGridArray[row][column]);
+                // console.log(this.gameBoardScafolding.scafoldingGridArray[row][column]);
             }
             tableElementinGB.appendChild(rowElementInTable);                                                //puts tr elemnent within the table element
         }
