@@ -28,6 +28,11 @@ class GameBoardHMTLRender
                 dataElementInTable.textContent = cellObjectInScafoldArray.cellStatusA2_MineVsEmpty;
                 // dataElementInTable.textContent = cellObjectInScafoldArray.cellStatusAttribute2;
 
+                if(cellObjectInScafoldArray.cellStatusA2_MineVsEmpty=="cleared")
+                {
+                    dataElementInTable.classList.add("cleared");
+                }
+
                 
                 
                 //  //if array location has value, attach it to the textContent

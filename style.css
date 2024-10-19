@@ -37,3 +37,8 @@ td { /*table data aka, a cell that is the #column within a row. This will give e
     white-space: nowrap; /* Prevent text wrapping */
 }
 
+.cleared
+{
+    background-color: grey;
+}
+
