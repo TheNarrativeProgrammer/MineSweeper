@@ -312,7 +312,13 @@ class GameBoardScafolding
                         if(InColumnOfTdPlayerClicked==this.numOfColumns-1)                                                                                            //if player clicks column = Total#column, extend coumns to RIGHT by 1
                         {
                             columnIteration = columnIterationAtZero;
-                            rowIteration =  startingCellObjectInScafoldArray.distanceToEdgeRows-2;
+                            rowIteration =  startingCellObjectInScafoldArray.distanceToEdgeRows+2;
+                            
+                        }
+                        if(InRowOfTdPlayerClicked==this.numOfRows-1)                                                                                            //if player clicks column = Total#column, extend coumns to RIGHT by 1
+                        {
+                            columnIteration = columnIterationAtZero;
+                            rowIteration =  startingCellObjectInScafoldArray.distanceToEdgeRows+2;
                             
                         }
                         else if(InColumnOfTdPlayerClicked<=(this.numOfColumns/2)+1)                                                                                                            //if player clicks column closer to center, select random number to see if cells in iteration are cleared
@@ -333,6 +339,35 @@ class GameBoardScafolding
                
             }
 
+        }
+
+
+
+        GenerateMines()
+        {
+            
+            for(let row = 0; row < this.numOfRows; row++)
+                {
+                    for(let column = 0; column < this.numOfColumns; column++)
+                    {
+                        const CellObjectInScafoldArray = this.scafoldingGridArray[row][column];
+                        if(CellObjectInScafoldArray.cellStatusA2_MineVsEmpty== "cleared")
+                        {
+                            continue;
+
+                        }
+                        const chanceOfMine = this.getRandtomInt(2);
+                         if(chanceOfMine>=1)
+                        {
+                            CellObjectInScafoldArray.cellStatusA2_MineVsEmpty="hasmine";
+                        }
+                        else 
+                        {
+                            CellObjectInScafoldArray.cellStatusA2_MineVsEmpty="empty";
+                        }
+                        
+                    }
+                }
         }
 
     }
