@@ -370,6 +370,59 @@ class GameBoardScafolding
                 }
         }
 
+        GenerateAdjectMineCount()
+        {
+            
+            for(let row = 0; row < this.numOfRows; row++)
+                {
+                    for(let column = 0; column < this.numOfColumns; column++)
+                    {
+                        const CellObjectInScafoldArray = this.scafoldingGridArray[row][column];
+                        let neighbourIsCleared = false;
+                        let mineCount = 0;
+
+                        //array of neighbouring cells. Current cell in iteration (CellObjectInScafoldArray) is in center. 
+                        const neighours = 
+                        [
+                            [row -1, column -1],             //top left
+                            [row -1, column],                //top mid
+                            [row -1, column +1],             //top right
+                            [row, column -1],                //center left
+                            [row, column +1],               //center right
+                            [row +1, column -1],             //bottom left
+                            [row +1, column],                //bottom mid
+                            [row +1, column +1],             //bottom right
+
+                        ];
+                       
+                        for(const [r,c] of neighours)
+                        {
+                            if(r>=0 && r < this.numOfRows && c >= 0 && c < this.numOfColumns)                               //check neighbouring cell to see if it's out of bounds. Lower bound of row and column is 0, upper bound of row is numOfRows, and column is numOfColumns
+                            {
+                                const neighourCellObject = this.scafoldingGridArray[r][c];
+                                if(neighourCellObject.cellStatusA2_MineVsEmpty == "cleared")                 //check if at least one neighbour is a cleared cell. This changes if the number of mines is shown or hidden
+                                {
+                                    neighbourIsCleared = true;
+                                }
+                                else if(neighourCellObject.cellStatusA2_MineVsEmpty == "hasmine")            //checks if neighbour has mine and iterates count up if true.
+                                {
+                                    mineCount++
+                                }
+
+                            }
+                        }
+
+                        if(neighbourIsCleared==true && CellObjectInScafoldArray.cellStatusA2_MineVsEmpty!== "cleared")
+                        {
+                            CellObjectInScafoldArray.cellStatusA2_AdjacentMines=mineCount;
+                            neighbourIsCleared = false;
+                        }
+
+                        
+                    }
+                }
+        }
+
     }
 
  

@@ -34,6 +34,7 @@ class UserInput
                     this.gameBoardScafolding.DefineAreaAroundInitalClickAsCleared(startingCellObjectInScafoldArray, rowAttribute, columnAttribute);
                     this.countClicks++;
                     this.gameBoardScafolding.GenerateMines();
+                    this.gameBoardScafolding.GenerateAdjectMineCount();
 
                     this.gameBoardHTMLRender.RenderGameBoardHTMLElements("gameTest"); 
                     
