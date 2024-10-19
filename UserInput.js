@@ -23,7 +23,7 @@ class UserInput
             {
                 rowAttribute = parseInt(dataElementInTable.dataset.rowAttribute);
                 columnAttribute = parseInt(dataElementInTable.dataset.columnAttribute);
-                console.log(rowAttribute + " & " +columnAttribute);
+                // console.log(rowAttribute + " & " +columnAttribute);
 
                 if(this.countClicks===0)
                 {
@@ -38,6 +38,15 @@ class UserInput
 
                     this.gameBoardHTMLRender.RenderGameBoardHTMLElements("gameTest"); 
                     
+                }else
+                {
+                    this.gameBoardScafolding.RevealCell(rowAttribute, columnAttribute);
+                        this.gameBoardScafolding.GenerateAdjectMineCount();
+
+                        this.countClicks++;
+    
+                        this.gameBoardHTMLRender.RenderGameBoardHTMLElements("gameTest"); 
+
                 }
 
         
@@ -63,7 +72,7 @@ class UserInput
                 if(this.countClicks>0)
                 {
                     this.gameBoardScafolding.FlagCell(rowAttribute, columnAttribute);
-                    console.log("RIght click called and in if")
+                    console.log("RIght click called and in if");
 
                     this.gameBoardHTMLRender.RenderGameBoardHTMLElements("gameTest"); 
                     

@@ -44,6 +44,11 @@ td { /*table data aka, a cell that is the #column within a row. This will give e
 
 .flagged
 {
+    background-color: yellow;
+}
+
+.boom
+{
     background-color: red;
 }
 

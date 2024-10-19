@@ -25,18 +25,24 @@ class GameBoardHMTLRender
                 const dataElementInTable = document.createElement("td");                                        //create td element in tr. Store as var
                 dataElementInTable.id = ((row*100) + column);                                                   //assign unique ID
                 const cellObjectInScafoldArray = this.gameBoardScafolding.scafoldingGridArray[row][column];     //store cell object located at current position of scafoldingGridArray as variable
-                dataElementInTable.textContent = cellObjectInScafoldArray.cellStatusA2_AdjacentMines;
+                dataElementInTable.textContent = cellObjectInScafoldArray.cellStatusA2_MineVsEmpty;
                 // dataElementInTable.textContent = cellObjectInScafoldArray.cellStatusAttribute2;
 
                 if(cellObjectInScafoldArray.cellStatusA1_Visibility=="cleared")
                 {
                     dataElementInTable.classList.add("cleared");
+                    dataElementInTable.textContent = cellObjectInScafoldArray.cellStatusA2_AdjacentMines;
                 }
 
                 if(cellObjectInScafoldArray.cellStatusA1_Visibility=="flagged")
                     {
                         dataElementInTable.classList.remove("cleared");
                         dataElementInTable.classList.add("flagged");
+                    }
+                    
+                if(cellObjectInScafoldArray.cellStatusA1_Visibility=="revealed" && cellObjectInScafoldArray.cellStatusA2_MineVsEmpty == "hasmine")
+                    {
+                        dataElementInTable.classList.add("boom");
                     }
 
                 

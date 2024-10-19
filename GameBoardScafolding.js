@@ -432,13 +432,13 @@ class GameBoardScafolding
             if(cellVisibility=="flagged")
             {
                 CellObjectInScafoldArray.cellStatusA1_Visibility = "hidden";
-                console.log("change to hidden");
+                // console.log("change to hidden");
             }
 
             if(cellVisibility=="hidden")
                 {
                     CellObjectInScafoldArray.cellStatusA1_Visibility = "flagged";
-                    console.log("change to flag");
+                    // console.log("change to flag");
                 }
 
             if(cellVisibility=="cleared")
@@ -446,6 +446,36 @@ class GameBoardScafolding
                     console.log("can't flagged a cleared cell");
                 }
                 
+            
+        }
+
+
+        RevealCell(InRowOfTdPlayerClicked, InColumnOfTdPlayerClicked)
+        {
+            const CellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked][InColumnOfTdPlayerClicked];
+            const cellVisibility = CellObjectInScafoldArray.cellStatusA1_Visibility
+
+            if(cellVisibility=="flagged")
+                {
+                    console.log("can't clear a flagged cell");
+                }
+                else if(cellVisibility=="hidden")
+                {
+                    if(CellObjectInScafoldArray.cellStatusA2_MineVsEmpty == "empty")
+                        {
+                            CellObjectInScafoldArray.cellStatusA1_Visibility="cleared"
+                        }
+
+
+                        if(CellObjectInScafoldArray.cellStatusA2_MineVsEmpty == "hasmine")
+                            {
+                                CellObjectInScafoldArray.cellStatusA1_Visibility="revealed"
+                                console.log("GAME OVER");
+                                // alert("Game Over");
+                            }
+
+                }
+
             
         }
 
