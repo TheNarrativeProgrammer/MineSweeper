@@ -142,8 +142,8 @@ class GameBoardScafolding
             for(let IteratingFromMiddleUpward = startingCellObjectInScafoldArray.distanceToEdgeRows; IteratingFromMiddleUpward >=0; IteratingFromMiddleUpward--)    //clear all cells until reaching the upper bounds (row 0)- generate UPWARD of starting cell
             {
                 const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked - IteratingFromMiddleUpward][InColumnOfTdPlayerClicked];
-                adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
-                console.log("cell status" + adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty);
+                adjactentCellObjectInScafoldArray.cellStatusA1_Visibility = "cleared";
+                console.log("cell status" + adjactentCellObjectInScafoldArray.cellStatusA1_Visibility);
             }
 
             const maxUpperRange = startingCellObjectInScafoldArray.centerUpperRow+3 - startingCellObjectInScafoldArray.distanceToEdgeRows;
@@ -152,7 +152,7 @@ class GameBoardScafolding
             for(let i = 1; i < RandomIterationToClearUntil; i++)                                                                                            //clear all cells until reaching the bounds of random number - generate  DOWNWARD of starting cell
             {
                 const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked + i][InColumnOfTdPlayerClicked];
-            adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
+            adjactentCellObjectInScafoldArray.cellStatusA1_Visibility = "cleared";
             }
         }
 
@@ -161,8 +161,8 @@ class GameBoardScafolding
                 for(let IteratingFromMiddleDownward = startingCellObjectInScafoldArray.distanceToEdgeRows; IteratingFromMiddleDownward >=0; IteratingFromMiddleDownward--)    //clear all cells until reaching the lower bounds (row = Total#Row)- generate  DOWNWARD of starting cell
                 {
                     const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked + IteratingFromMiddleDownward][InColumnOfTdPlayerClicked];
-                    adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
-                    console.log("cell status" + adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty);
+                    adjactentCellObjectInScafoldArray.cellStatusA1_Visibility = "cleared";
+                    console.log("cell status" + adjactentCellObjectInScafoldArray.cellStatusA1_Visibility);
                 }
                     const maxUpperRange = startingCellObjectInScafoldArray.centerLowerRow+3 - startingCellObjectInScafoldArray.distanceToEdgeRows;
                     const RandomIterationToClearUntil = this.getRandtomInt(maxUpperRange);                                                                          //random number provides bound for additional cells to clear beyond the point the player clicked
@@ -170,7 +170,7 @@ class GameBoardScafolding
                 for(let i = 1; i < RandomIterationToClearUntil; i++)                                                                                            //clear all cells until reaching the bounds of random number - generate UPWARD of starting cell
                 {
                 const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked - i][InColumnOfTdPlayerClicked];
-                adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
+                adjactentCellObjectInScafoldArray.cellStatusA1_Visibility = "cleared";
                 }
             }
 
@@ -184,8 +184,8 @@ class GameBoardScafolding
                 for(let IteratingFromMiddleLeftward = startingCellObjectInScafoldArray.distanceToEdgeColumns; IteratingFromMiddleLeftward >=0; IteratingFromMiddleLeftward--)    //clear all cells until reaching the left bounds (column 0)- generate LEFTWARD of starting cell
                 {
                     const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked][InColumnOfTdPlayerClicked  - IteratingFromMiddleLeftward];
-                    adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
-                    console.log("cell status column" + adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty);
+                    adjactentCellObjectInScafoldArray.cellStatusA1_Visibility = "cleared";
+                    console.log("cell status column" + adjactentCellObjectInScafoldArray.cellStatusA1_Visibility);
                 }
 
                 const maxUpperRange = startingCellObjectInScafoldArray.centerLeftColumn+3 - startingCellObjectInScafoldArray.distanceToEdgeColumns;
@@ -195,7 +195,7 @@ class GameBoardScafolding
                 {
                     console.log("in loop 1");
                     const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked][InColumnOfTdPlayerClicked + i];
-                adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
+                adjactentCellObjectInScafoldArray.cellStatusA1_Visibility = "cleared";
                 }
                                                                                                                                                 //LEFT FILL OUT
                 if(startingCellObjectInScafoldArray.startingCellRegionRow == "upper")                                                                               //FILL OUT - LEFT UPPER - makes random assortment of cells cleared making cleared area more square sharped.
@@ -218,7 +218,7 @@ class GameBoardScafolding
                         {
                             
                             const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked - IteratingFromMiddleUpward][columnIteration];
-                            adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
+                            adjactentCellObjectInScafoldArray.cellStatusA1_Visibility = "cleared";
                             console.log("FILL OUT - left upper");
                             columnIterationAtZero++;
                         }
@@ -244,7 +244,7 @@ class GameBoardScafolding
                         for(let IteratingFromMiddleDownward = startingCellObjectInScafoldArray.distanceToEdgeRows; IteratingFromMiddleDownward >=-1; IteratingFromMiddleDownward--)    //iterate th
                         {
                             const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked + IteratingFromMiddleDownward][columnIteration];
-                            adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
+                            adjactentCellObjectInScafoldArray.cellStatusA1_Visibility = "cleared";
                             console.log("FILL OUT - left upper");
                             columnIterationAtZero++;
                         }
@@ -259,8 +259,8 @@ class GameBoardScafolding
                 for(let IteratingFromMiddleRightward = startingCellObjectInScafoldArray.distanceToEdgeColumns; IteratingFromMiddleRightward >=0; IteratingFromMiddleRightward--)    //clear all cells until reaching the right bounds (column = total#Columns) - generate RIGHTWARD of starting cell
                 {
                     const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked][InColumnOfTdPlayerClicked  + IteratingFromMiddleRightward];
-                    adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
-                    console.log("cell status" + adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty);
+                    adjactentCellObjectInScafoldArray.cellStatusA1_Visibility = "cleared";
+                    console.log("cell status" + adjactentCellObjectInScafoldArray.cellStatusA1_Visibility);
                 }
                     const maxUpperRange = startingCellObjectInScafoldArray.centerRightColumn+3 - startingCellObjectInScafoldArray.distanceToEdgeColumns;
                     const RandomIterationToClearUntil = this.getRandtomInt(maxUpperRange);                                                                          //random number provides bound for additional cells to clear beyond the point the player clicked
@@ -269,7 +269,7 @@ class GameBoardScafolding
                 {
                     console.log("in loop 2");
                 const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked][InColumnOfTdPlayerClicked  - i];
-                adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
+                adjactentCellObjectInScafoldArray.cellStatusA1_Visibility = "cleared";
                 }
 
                                                                                                                                                                 //RIGHT FILL OUT
@@ -294,7 +294,7 @@ class GameBoardScafolding
                         {
                             
                             const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked - IteratingFromMiddleUpward][columnIteration];
-                            adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
+                            adjactentCellObjectInScafoldArray.cellStatusA1_Visibility = "cleared";
                             console.log("FILL OUT - RIGHT upper");
                             columnIterationAtZero--;
                         }
@@ -329,7 +329,7 @@ class GameBoardScafolding
                         for(let IteratingFromMiddleDownward = rowIteration; IteratingFromMiddleDownward >=1; IteratingFromMiddleDownward--)    //iterate th
                         {
                             const adjactentCellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked - IteratingFromMiddleDownward][columnIteration];
-                            adjactentCellObjectInScafoldArray.cellStatusA2_MineVsEmpty = "cleared";
+                            adjactentCellObjectInScafoldArray.cellStatusA1_Visibility = "cleared";
                             console.log("FILL OUT - RIGHT upper");
                             columnIterationAtZero--;
                         }
@@ -351,7 +351,7 @@ class GameBoardScafolding
                     for(let column = 0; column < this.numOfColumns; column++)
                     {
                         const CellObjectInScafoldArray = this.scafoldingGridArray[row][column];
-                        if(CellObjectInScafoldArray.cellStatusA2_MineVsEmpty== "cleared")
+                        if(CellObjectInScafoldArray.cellStatusA1_Visibility== "cleared")
                         {
                             continue;
 
@@ -400,7 +400,7 @@ class GameBoardScafolding
                             if(r>=0 && r < this.numOfRows && c >= 0 && c < this.numOfColumns)                               //check neighbouring cell to see if it's out of bounds. Lower bound of row and column is 0, upper bound of row is numOfRows, and column is numOfColumns
                             {
                                 const neighourCellObject = this.scafoldingGridArray[r][c];
-                                if(neighourCellObject.cellStatusA2_MineVsEmpty == "cleared")                 //check if at least one neighbour is a cleared cell. This changes if the number of mines is shown or hidden
+                                if(neighourCellObject.cellStatusA1_Visibility == "cleared")                 //check if at least one neighbour is a cleared cell. This changes if the number of mines is shown or hidden
                                 {
                                     neighbourIsCleared = true;
                                 }
@@ -412,7 +412,7 @@ class GameBoardScafolding
                             }
                         }
 
-                        if(neighbourIsCleared==true && CellObjectInScafoldArray.cellStatusA2_MineVsEmpty == "cleared")
+                        if(neighbourIsCleared==true && CellObjectInScafoldArray.cellStatusA1_Visibility == "cleared")
                         {
                             CellObjectInScafoldArray.cellStatusA2_AdjacentMines=mineCount;
                             neighbourIsCleared = false;
@@ -421,6 +421,32 @@ class GameBoardScafolding
                         
                     }
                 }
+        }
+
+        FlagCell(InRowOfTdPlayerClicked, InColumnOfTdPlayerClicked)
+        {
+
+            const CellObjectInScafoldArray = this.scafoldingGridArray[InRowOfTdPlayerClicked][InColumnOfTdPlayerClicked];
+            const cellVisibility = CellObjectInScafoldArray.cellStatusA1_Visibility
+
+            if(cellVisibility=="flagged")
+            {
+                CellObjectInScafoldArray.cellStatusA1_Visibility = "hidden";
+                console.log("change to hidden");
+            }
+
+            if(cellVisibility=="hidden")
+                {
+                    CellObjectInScafoldArray.cellStatusA1_Visibility = "flagged";
+                    console.log("change to flag");
+                }
+
+            if(cellVisibility=="cleared")
+                {
+                    console.log("can't flagged a cleared cell");
+                }
+                
+            
         }
 
     }

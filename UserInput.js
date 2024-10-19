@@ -38,9 +38,6 @@ class UserInput
 
                     this.gameBoardHTMLRender.RenderGameBoardHTMLElements("gameTest"); 
                     
-
-                    
-                    
                 }
 
         
@@ -51,6 +48,31 @@ class UserInput
 
     AddEventListenersRightClick()
     {
+
+        const gameBoardContainerElement = document.getElementById("gameTest");          //stores gameboard element as variable
+        gameBoardContainerElement.addEventListener("contextmenu", (event) =>           //note change "click" to "contextmenu"
+        {
+            event.preventDefault();
+            const dataElementInTable = event.target.closest("td");
+            if(dataElementInTable)
+            {
+                let rowAttribute = parseInt(dataElementInTable.dataset.rowAttribute);
+                let columnAttribute = parseInt(dataElementInTable.dataset.columnAttribute);
+                console.log("right click : " + rowAttribute + " & " +columnAttribute);
+
+                if(this.countClicks>0)
+                {
+                    this.gameBoardScafolding.FlagCell(rowAttribute, columnAttribute);
+                    console.log("RIght click called and in if")
+
+                    this.gameBoardHTMLRender.RenderGameBoardHTMLElements("gameTest"); 
+                    
+                }
+
+        
+            }
+
+        })
 
     }
 }

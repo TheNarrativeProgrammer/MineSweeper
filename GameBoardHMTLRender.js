@@ -28,10 +28,16 @@ class GameBoardHMTLRender
                 dataElementInTable.textContent = cellObjectInScafoldArray.cellStatusA2_AdjacentMines;
                 // dataElementInTable.textContent = cellObjectInScafoldArray.cellStatusAttribute2;
 
-                if(cellObjectInScafoldArray.cellStatusA2_MineVsEmpty=="cleared")
+                if(cellObjectInScafoldArray.cellStatusA1_Visibility=="cleared")
                 {
                     dataElementInTable.classList.add("cleared");
                 }
+
+                if(cellObjectInScafoldArray.cellStatusA1_Visibility=="flagged")
+                    {
+                        dataElementInTable.classList.remove("cleared");
+                        dataElementInTable.classList.add("flagged");
+                    }
 
                 
                 

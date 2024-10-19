@@ -42,3 +42,8 @@ td { /*table data aka, a cell that is the #column within a row. This will give e
     background-color: grey;
 }
 
+.flagged
+{
+    background-color: red;
+}
+
