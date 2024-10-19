@@ -32,6 +32,7 @@ class UserInput
                     // console.log("Column edge dist:  " + startingCellObjectInScafoldArray.distanceToEdgeColumns);
                     // console.log("Row edge dist:  " + startingCellObjectInScafoldArray.distanceToEdgeRows);
                     this.gameBoardScafolding.DefineAreaAroundInitalClickAsCleared(startingCellObjectInScafoldArray, rowAttribute, columnAttribute);
+                    this.countClicks++;
 
                     this.gameBoardHTMLRender.RenderGameBoardHTMLElements("gameTest"); 
                     

@@ -2,6 +2,8 @@
 
 
 import CellInDataElement from "./CellInDataElement.js";
+import Timer from "./Timer.js";
+
 
 
 // const myCellData = new CellInDataElement();
@@ -17,7 +19,7 @@ myGameBoardScafolding.LinkCellArrayWithScafoldingArray();   //Populate scafoldin
 import GameBoardHMTLRender from "./GameBoardHMTLRender.js";
 const myGameBoardHTMLRender = new GameBoardHMTLRender(myGameBoardScafolding);
 myGameBoardHTMLRender.RenderGameBoardHTMLElements("gameTest");
-
+const myTimer = new Timer();
 //USER INPUT
  import UserInput from "./UserInput.js";
  const myUserInput = new UserInput(myGameBoardScafolding, myGameBoardHTMLRender);
