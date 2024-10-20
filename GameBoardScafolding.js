@@ -350,9 +350,11 @@ class GameBoardScafolding
 
         GenerateMines()
         {
+            let totalNumOfMines = 0;
             
             for(let row = 0; row < this.numOfRows; row++)
                 {
+                    
                     for(let column = 0; column < this.numOfColumns; column++)
                     {
                         const CellObjectInScafoldArray = this.scafoldingGridArray[row][column];
@@ -365,6 +367,8 @@ class GameBoardScafolding
                          if(chanceOfMine>=4)
                         {
                             CellObjectInScafoldArray.cellStatusA2_MineVsEmpty="hasmine";
+                            totalNumOfMines++
+
                         }
                         else 
                         {
@@ -373,6 +377,7 @@ class GameBoardScafolding
                         
                     }
                 }
+                return totalNumOfMines;
         }
 
         GenerateAdjectMineCount()

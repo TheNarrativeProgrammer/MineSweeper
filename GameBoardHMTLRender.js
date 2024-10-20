@@ -7,8 +7,14 @@ class GameBoardHMTLRender
         console.log("constructed");
     }
 
-    RenderGameBoardHTMLElements(inGameBoardContainerID) //GameTableWrapper"
-    {        
+    RenderGameBoardHTMLElements(inGameBoardContainerID, totalMinesGenerated) //GameTableWrapper"
+    {
+
+        //Update mine count
+        
+    const mineCountElement = document.getElementById("mineCount");
+    mineCountElement.textContent = "Mines : " + totalMinesGenerated; 
+         
     console.log("render called");                                                               //GET GAME BOARD ELEMENT
         const gameBoardContainerElement = document.getElementById(inGameBoardContainerID);          //stores gameboard element as variable
         gameBoardContainerElement.innerHTML = "";                                                   //resets inner child elements of parent gameBoardContainerElement to blank (can't have class)

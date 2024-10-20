@@ -23,6 +23,7 @@ class CellInDataElement
         this.cellStatusA1_Visibility = "hidden";
         this.cellStatusA2_MineVsEmpty= "empty";
         this.cellStatusA2_AdjacentMines = cellStatusAttribute.a3_NumSurroundingMines;
+        this.cellStatusA2_TotalMines = 0;
     }
     
     

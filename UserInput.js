@@ -9,6 +9,7 @@ class UserInput
         this.AddEventListenersLeftClick(); //flag cell
         this.AddEventListenersRightClick();//reveal cell
         this.countClicks=0;
+        this.totalMinesGenerated=0;
     }
 
     AddEventListenersLeftClick()
@@ -33,10 +34,11 @@ class UserInput
                     // console.log("Row edge dist:  " + startingCellObjectInScafoldArray.distanceToEdgeRows);
                     this.gameBoardScafolding.DefineAreaAroundInitalClickAsCleared(startingCellObjectInScafoldArray, rowAttribute, columnAttribute);
                     this.countClicks++;
-                    this.gameBoardScafolding.GenerateMines();
+
+                    this.totalMinesGenerated = this.gameBoardScafolding.GenerateMines();
                     this.gameBoardScafolding.GenerateAdjectMineCount();
 
-                    this.gameBoardHTMLRender.RenderGameBoardHTMLElements("gameTest"); 
+                    this.gameBoardHTMLRender.RenderGameBoardHTMLElements("gameTest", this.totalMinesGenerated); 
                     
                 }else
                 {
@@ -46,7 +48,7 @@ class UserInput
                         this.gameBoardScafolding.GenerateAdjectMineCount();
 
                         this.countClicks++;
-                        this.gameBoardHTMLRender.RenderGameBoardHTMLElements("gameTest");
+                        this.gameBoardHTMLRender.RenderGameBoardHTMLElements("gameTest",  this.totalMinesGenerated);
                         
                         if(gameOver==true)
                         {
