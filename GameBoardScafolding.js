@@ -1,5 +1,6 @@
 import CellInDataElement from "./CellInDataElement.js";
 import { restartGameRestoreSettings } from "./script.js";
+// import { TimeElapsed } from "./Timer.js";
 const region = 
 {
     start: "undefined",
@@ -19,6 +20,9 @@ class GameBoardScafolding
         this.numOfColumns = InNumofColumns;
         this.scafoldingGridArray = this.CreateScafoldingGrid(null);
         this.CellsGridArray = this.CreateScafoldingGrid("instance of Cell");
+        // this.scafoldTimer;
+        
+        
     }
 
     CreateScafoldingGrid(inDataToPush = null)
@@ -466,13 +470,18 @@ class GameBoardScafolding
                         {
                             CellObjectInScafoldArray.cellStatusA1_Visibility="cleared"
                         }
+                        // let elaspedTime = TimeElapsed(this.scafoldTimer);
+                        let elaspedTime =0 ;
+                        
+
+                       
 
 
                         if(CellObjectInScafoldArray.cellStatusA2_MineVsEmpty == "hasmine")
                             {
                                 CellObjectInScafoldArray.cellStatusA1_Visibility="revealed"
-                                console.log("GAME OVER");
-                                this.ShowGameOverModal("Game over. Thanks For playing.");
+                                console.log("GAME OVE");
+                                this.ShowGameOverModal("Good amount of time");
                                 //  alert("Game Over");
                             }
                 }
@@ -487,12 +496,14 @@ class GameBoardScafolding
         const restartButton = document.getElementById("restartButton");
 
         //Default message is "Game Over". inMessage overrides the default
-        messageElement.textContent = inMessage;
+        messageElement.textContent = "Game over. You Played for " + inMessage;
         modalElement.style.display = "block"; //change visibility of modal to visible
 
         //RESTART BUTTON
         restartButton.addEventListener("click", (event) => {
+            // this.Timer=null;
             modalElement.style.display = "none"; //change visibility of modal to hidden
+            console.log("clear timer called");
             restartGameRestoreSettings();
             });
         }
