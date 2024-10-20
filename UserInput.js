@@ -95,13 +95,13 @@ class UserInput
         messageElement.textContent = inMessage;
         modalElement.style.display = "block"; //change visibility of modal to visible
 
-        // //RESTART BUTTON
-        // restartButton.addEventListener("click", (event) => {
-        //     modalElement.style.display = "none"; //change visibility of modal to hidden
-        //     restartGameRestoreSettings();
+        //RESTART BUTTON
+        restartButton.addEventListener("click", (event) => {
+            modalElement.style.display = "none"; //change visibility of modal to hidden
+            restartGameRestoreSettings();
 
-        // });
-            
+        });
+        
 
         
     }

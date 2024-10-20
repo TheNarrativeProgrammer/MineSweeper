@@ -1,4 +1,5 @@
 import CellInDataElement from "./CellInDataElement.js";
+import { restartGameRestoreSettings } from "./script.js";
 const region = 
 {
     start: "undefined",
@@ -471,13 +472,32 @@ class GameBoardScafolding
                             {
                                 CellObjectInScafoldArray.cellStatusA1_Visibility="revealed"
                                 console.log("GAME OVER");
+                                this.ShowGameOverModal("Game over. Thanks For playing.");
                                 //  alert("Game Over");
                             }
-
                 }
-
-            
         }
+
+
+
+        ShowGameOverModal(inMessage)
+        {
+        const modalElement = document.getElementById("gameOverModal");
+        const messageElement = document.getElementById("gameOverMessage");
+        const restartButton = document.getElementById("restartButton");
+
+        //Default message is "Game Over". inMessage overrides the default
+        messageElement.textContent = inMessage;
+        modalElement.style.display = "block"; //change visibility of modal to visible
+
+        //RESTART BUTTON
+        restartButton.addEventListener("click", (event) => {
+            modalElement.style.display = "none"; //change visibility of modal to hidden
+            restartGameRestoreSettings();
+            });
+        }
+
+        
 
     }
 

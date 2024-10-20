@@ -34,8 +34,9 @@ function initializeGame()
 }
 
 
-function restartGameRestoreSettings()
+export function restartGameRestoreSettings() // exported function is called from GBScafolding
 {
+    myTimer.clearTimerData();
     //Reset Variables for objects
     myGameBoardScafolding=null;
     myGameBoardHTMLRender=null;
@@ -43,6 +44,7 @@ function restartGameRestoreSettings()
     myUserInput=null;
     //REINITIALIZE THE GAME
     initializeGame();
+    console.log("restart game called")
 
 }
 
