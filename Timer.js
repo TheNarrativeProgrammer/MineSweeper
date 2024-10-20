@@ -14,7 +14,6 @@ class Timer
     clearTimerData()
     {
         clearInterval(this.timerInterval);
-        clearInterval(this.timerInterval);
         // this.timerIDs.forEach(timerID => clearInterval(timerID));
         // this.timerIDs = [];// Clear the array
         console.log("clear timer called");

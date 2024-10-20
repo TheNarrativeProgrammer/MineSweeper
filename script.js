@@ -20,10 +20,6 @@ function initializeGame()
     //TIMER
     myTimer = new Timer();
     //CREATE GRID SACFOLDING & POPULATE WITH CELL OBJECTS
-    setTimeout(() => {
-        console.log("This is delayed by 2 seconds");
-    }, 2000)
-    
     myGameBoardScafolding = new GameBoardScafolding(10,10); //set variable to board scafolding object, a 2d array with each location not equal to anything (null) on initialization.  
     //create cell objects, a 2d array using same row/column order as scafolding array
     myGameBoardScafolding.LinkCellArrayWithScafoldingArray();   //Populate scafolding array with cell array. Each location in scafolding array is equal to a unidue cell object
