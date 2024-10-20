@@ -54,7 +54,7 @@ class UserInput
                                 console.log("This is delayed by 2 seconds");
                                 this.gameBoardScafolding.ShowGameOverModal("Good amount of time");
                             }, 2000)
-                            this.gameBoardHTMLRender.RenderGameBoardHTMLElements("gameTest");
+
                             
 
                         }
