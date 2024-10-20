@@ -1,3 +1,6 @@
+body{
+    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+}
 .container_game{
     border: 1px solid black;
     width: 900px;
@@ -60,11 +63,13 @@ td { /*table data aka, a cell that is the #column within a row. This will give e
     bottom: 0;
     left: 0;
     right: 0;
-    background: red;
+    background: linear-gradient(#e66465, #9198e5);
     color: black;
     border: 2px solid black;
     text-align: center;
     padding: 50px;
 
 }
+
+
 

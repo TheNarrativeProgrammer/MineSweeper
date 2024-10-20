@@ -40,12 +40,24 @@ class UserInput
                     
                 }else
                 {
-                    this.gameBoardScafolding.RevealCell(rowAttribute, columnAttribute);
+                    let gameOver = false;
+                    gameOver = this.gameBoardScafolding.RevealCell(rowAttribute, columnAttribute);
+
                         this.gameBoardScafolding.GenerateAdjectMineCount();
 
                         this.countClicks++;
-    
-                        this.gameBoardHTMLRender.RenderGameBoardHTMLElements("gameTest"); 
+                        this.gameBoardHTMLRender.RenderGameBoardHTMLElements("gameTest");
+                        
+                        if(gameOver==true)
+                        {
+                            setTimeout(() => {
+                                console.log("This is delayed by 2 seconds");
+                                this.gameBoardScafolding.ShowGameOverModal("Good amount of time");
+                            }, 2000)
+                            this.gameBoardHTMLRender.RenderGameBoardHTMLElements("gameTest");
+                            
+
+                        }
 
                 }
 

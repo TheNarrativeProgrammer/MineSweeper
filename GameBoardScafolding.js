@@ -361,8 +361,8 @@ class GameBoardScafolding
                             continue;
 
                         }
-                        const chanceOfMine = this.getRandtomInt(4);
-                         if(chanceOfMine>=2)
+                        const chanceOfMine = this.getRandtomInt(6);
+                         if(chanceOfMine>=4)
                         {
                             CellObjectInScafoldArray.cellStatusA2_MineVsEmpty="hasmine";
                         }
@@ -469,19 +469,18 @@ class GameBoardScafolding
                     if(CellObjectInScafoldArray.cellStatusA2_MineVsEmpty == "empty")
                         {
                             CellObjectInScafoldArray.cellStatusA1_Visibility="cleared"
+                            return false;
                         }
                         // let elaspedTime = TimeElapsed(this.scafoldTimer);
                         let elaspedTime =0 ;
-                        
-
-                       
-
 
                         if(CellObjectInScafoldArray.cellStatusA2_MineVsEmpty == "hasmine")
                             {
                                 CellObjectInScafoldArray.cellStatusA1_Visibility="revealed"
-                                console.log("GAME OVE");
-                                this.ShowGameOverModal("Good amount of time");
+                                console.log("GAME OVER");
+                                return true;
+                                
+                                
                                 //  alert("Game Over");
                             }
                 }
@@ -505,6 +504,8 @@ class GameBoardScafolding
             modalElement.style.display = "none"; //change visibility of modal to hidden
             console.log("clear timer called");
             restartGameRestoreSettings();
+
+            
             });
         }
 
