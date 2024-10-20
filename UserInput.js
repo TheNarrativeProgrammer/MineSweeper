@@ -53,6 +53,7 @@ class UserInput
                             setTimeout(() => {
                                 console.log("This is delayed by 2 seconds");
                                 this.gameBoardScafolding.ShowGameOverModal("Good amount of time");
+                                gameOver=false;
                             }, 2000)
 
                             
