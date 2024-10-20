@@ -361,8 +361,8 @@ class GameBoardScafolding
                             continue;
 
                         }
-                        const chanceOfMine = this.getRandtomInt(2);
-                         if(chanceOfMine>=1)
+                        const chanceOfMine = this.getRandtomInt(4);
+                         if(chanceOfMine>=2)
                         {
                             CellObjectInScafoldArray.cellStatusA2_MineVsEmpty="hasmine";
                         }
